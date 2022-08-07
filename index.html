@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+
+  <style>
+ @media screen and (max-width:769px){
+            form{
+              width: full;
+              padding: 0;
+            }
+        }
+  </style>
+
+  <title>JS Form</title>
+</head>
+
+<body>
+
+  <div class="container-fluid row m-0 p-0" style="height:100vh;">
+
+    <div class="col-lg-6 bg-light d-flex justify-content-center align-items-center">
+      <form name="employment" method="post">
+
+          <h2 class="text-center p-3">Employment Application</h2>
+          <hr>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>    
+          
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="text" class="form-control" id="age" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="date" class="form-label">D.O.B</label>
+            <input type="date" class="form-control" id="dob">
+          </div>
+
+          <div class="mb-3">
+            <label for="employee" class="form-label">Employee</label>
+            <input type="text" class="form-control" id="employee" required>
+          </div>
+
+            <input class="btn btn-outline-primary" type="submit" name="button" id="btn" value="Add" onclick="AddRow()"/>
+
+            <input class="btn btn-outline-danger" type="reset" name="reset" value="Reset" onclick="remove()"/>  
+
+      </form>
+    </div>
+
+
+    <div class="col-lg-6 mt-5">
+      <table class="table table-dark table-striped table-bordered" id="show">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">D.O.B</th>
+            <th scope="col">Employee</th>
+          </tr>
+        </thead>
+      </table>   
+      
+      
+    </div>
+
+  </div>
+
+
+  <script>
+
+    function AddRow() {
+
+      var list1 = [];
+      var list2 = [];
+      var list3 = [];
+      var list4 = [];
+
+      var n = 1;
+      var x = 0;
+
+      var AddRown = document.getElementById('show');
+      var NewRow = AddRown.insertRow(n);
+
+      list1[x] = document.getElementById("name").value;
+      list2[x] = document.getElementById("age").value;
+      list3[x] = document.getElementById("dob").value;
+      list4[x] = document.getElementById("employee").value;
+
+      var cel1 = NewRow.insertCell(0);
+      var cel2 = NewRow.insertCell(1);
+      var cel3 = NewRow.insertCell(2);
+      var cel4 = NewRow.insertCell(3);
+
+      cel1.innerHTML = list1[x];
+      cel2.innerHTML = list2[x];
+      cel3.innerHTML = list3[x];
+      cel4.innerHTML = list4[x];
+
+      n++;
+      x++;
+    }
+
+
+      // list1[x] != "" | list2[x] != "" | list3[x] != "" | list4[x] != ""
+  
+  </script>
+
+
+</body>
+
+</html>
